@@ -3,7 +3,7 @@ import Movie from "./Movie";
 
 const MovieList = ({ movies }) => {
   return (
-    <div classname="movie-container">
+    <div classname="outline w-25 pa3 mr2 flex-grow-1">
       {movies.map((results, i) => {
         return (
           <Movie

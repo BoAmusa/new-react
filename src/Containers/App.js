@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import MovieList from "../Components/MovieList";
 import SearchBox from "../Components/SearchBox";
-import Scroll from "../Components/Scroll";
 
 
 const API_KEY = "k_hohchnsh";
-const FEATURED_API = `https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}`;
 const SEARCH_API = `https://imdb-api.com/en/API/SearchMovie/${API_KEY}/`;
+const FAV_MOVIE = "Avengers";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    getMovies(FEATURED_API);
-  },[])
+  
+    useEffect(() => {
+        getMovies(SEARCH_API + FAV_MOVIE);
+    }, [FAV_MOVIE])
   
 
   //API to retrieves movies via IMdB
@@ -42,19 +42,23 @@ const App = () => {
   };
 
   return (
-    <div className="cards">
-      <h1 className="f2">Movies</h1>
-      <SearchBox
+    <div>
+      <div>
+      <h1 className="mv3 w-50 w-50-m w-25-l mw5 center">Movie Search</h1>
+      <SearchBox className="mv3 w-50 w-50-m w-25-l mw5 center"
         onChange={(value) => handleOnChange(value)}
         onSubmit={(event) => handleOnSubmit(event)}
       />
-      <Scroll className="cards">
+      </div>
+      <div className="flex justify-around">
+      <div>
         {movies !== undefined && movies !== null && movies.length > 0 ? (
-          <MovieList className="cards" movies={movies} />
+          <MovieList movies={movies} />
         ) : (
-          <h1>...</h1>
+          <h1 className="mv2 w-20 w-20-m w-25-l mw5 left">LOADING...</h1>
         )}
-      </Scroll>
+      </div>
+      </div>
     </div>
   );
 };

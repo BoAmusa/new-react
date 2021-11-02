@@ -3,7 +3,7 @@ import React from 'react';
 
 const Scroll = (props) => {
 
-return (<div className="cards" >
+return (<div>
     {props.children}
 </div>);
 };
