@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/new-react/static/css/main.81ba46e9.chunk.css",
+    "main.js": "/new-react/static/js/main.bedaec22.chunk.js",
+    "main.js.map": "/new-react/static/js/main.bedaec22.chunk.js.map",
+    "runtime-main.js": "/new-react/static/js/runtime-main.990bc0c5.js",
+    "runtime-main.js.map": "/new-react/static/js/runtime-main.990bc0c5.js.map",
+    "static/css/2.31461e4f.chunk.css": "/new-react/static/css/2.31461e4f.chunk.css",
+    "static/js/2.29c29655.chunk.js": "/new-react/static/js/2.29c29655.chunk.js",
+    "static/js/2.29c29655.chunk.js.map": "/new-react/static/js/2.29c29655.chunk.js.map",
+    "static/js/3.817b7840.chunk.js": "/new-react/static/js/3.817b7840.chunk.js",
+    "static/js/3.817b7840.chunk.js.map": "/new-react/static/js/3.817b7840.chunk.js.map",
+    "index.html": "/new-react/index.html",
+    "static/css/2.31461e4f.chunk.css.map": "/new-react/static/css/2.31461e4f.chunk.css.map",
+    "static/css/main.81ba46e9.chunk.css.map": "/new-react/static/css/main.81ba46e9.chunk.css.map",
+    "static/js/2.29c29655.chunk.js.LICENSE.txt": "/new-react/static/js/2.29c29655.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/new-react/static/media/SEGA.47b4bfa9.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.990bc0c5.js",
+    "static/css/2.31461e4f.chunk.css",
+    "static/js/2.29c29655.chunk.js",
+    "static/css/main.81ba46e9.chunk.css",
+    "static/js/main.bedaec22.chunk.js"
+  ]
+}
