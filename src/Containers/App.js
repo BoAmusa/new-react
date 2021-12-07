@@ -5,31 +5,17 @@ import Scroll from "../Components/Scroll";
 import ErrorBoundary from "../Components/ErrorBoundary";
 
 function App() {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     robots: [],
-  //     searchField: "",
-  //   };
-  // }
- const [robots, setRobots] = useState([]);
- const [searchField, setSearchField] = useState('');
+  const [robots, setRobots] = useState([]);
+  const [searchField, setSearchField] = useState("");
 
-  //Class
-  // componentDidMount() {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((users) => this.setState({ robots: users }));
-  // }
-useEffect(() => {
-  fetch("https://jsonplaceholder.typicode.com/users")
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) => setRobots(users ));
-}, [])
-
+      .then((users) => setRobots(users));
+  }, []);
 
   const onSearchChange = (event) => {
-    setSearchField( event.target.value);
+    setSearchField(event.target.value);
   };
 
   const filteredRobots = robots.filter((robot) => {
