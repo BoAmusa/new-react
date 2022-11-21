@@ -1,31 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import CardList from "../Components/CardList";
 import SearchBox from "../Components/SearchBox";
 import Scroll from "../Components/Scroll";
 import ErrorBoundary from "../Components/ErrorBoundary";
+import { setSearchField } from "../Actions";
+import { connect } from "react-redux";
 
-function App() {
-  const [robots, setRobots] = useState([]);
-  const [searchField, setSearchField] = useState("");
+const mapStateToProps = (state) => {
+  return {
+    searchField: state.searchField,
+  };
+};
 
-  useEffect(() => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+  };
+};
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      robots: [],
+      searchField: "",
+    };
+  }
+
+  componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) => setRobots(users));
-  }, []);
+      .then((users) => {
+        this.setState({ robots: users });
+      });
+  }
 
-  const onSearchChange = (event) => {
-    setSearchField(event.target.value);
-  };
+  // onSearchChange = (event) => {
+  //   this.setState({ searchField: event.target.value });
+  // };
 
-  const filteredRobots = robots.filter((robot) => {
-    return robot.name.toLowerCase().includes(searchField.toLowerCase());
-  });
+  render() {
+    const { robots } = this.state;
+    const { searchField, onSearchChange } = this.props;
 
-  if (!robots.length) {
-    return <h1>Loading</h1>;
-  } else {
-    return (
+    const filteredRobots = robots.filter((robot) => {
+      return robot.name.toLowerCase().includes(searchField.toLowerCase());
+    });
+    return !robots.length ? (
+      <h1>Loading</h1>
+    ) : (
       <div className="tc">
         <h1 className="f2">RoboFriends</h1>
         <SearchBox searchChange={onSearchChange} />
@@ -39,4 +62,4 @@ function App() {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
